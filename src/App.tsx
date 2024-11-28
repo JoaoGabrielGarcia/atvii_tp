@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
-import Clientes from "./pages/Clientes";
-import Produtos from "./pages/Produtos";
-import Servicos from "./pages/Servicos";
+import Clientes from "./pages/cliente/Clientes";
+import Produtos from "./pages/produto/Produtos";
+import Servicos from "./pages/servico/Servicos";
 import Navbar from "./components/Navbar";
 
 class App extends React.Component {
@@ -11,7 +11,7 @@ class App extends React.Component {
         return (
             <Router>
                 <div className="flex">
-                    <div className="w-72 h-screen">
+                    <div className="mr-16 lg:mr-12 h-screen">
                     <Navbar />
                     </div>
                     <div className="w-full">
