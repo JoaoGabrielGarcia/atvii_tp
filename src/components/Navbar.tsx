@@ -34,9 +34,8 @@ export default class Navbar extends React.Component<{}, NavbarState> {
       <div className="relative">
         {/* Botão para abrir/fechar a Sidebar em dispositivos móveis */}
         <button
-          className={`fixed top-4 left-4 p-2 text-white bg-slate-300 rounded-xl z-50 lg:hidden ${
-            isSidebarOpen ? "hidden" : "block"
-          }`}
+          className={`fixed top-4 left-2 max-w-12 place-items-center text-gray-800 hover:text-white hover:bg-gray-500hite bg-slate-300 rounded-xl z-50 lg:hidden ${isSidebarOpen ? "hidden" : "block"
+            }`}
           onClick={this.toggleSidebar}
         >
           <HiMenu size={24} />
@@ -44,30 +43,38 @@ export default class Navbar extends React.Component<{}, NavbarState> {
 
         {/* Sidebar */}
         <aside
-          className={`fixed top-0 left-0 h-full transition-transform transform ${
-            isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-          } lg:translate-x-0 lg:static lg:h-auto z-40`}
+          className={`fixed top-0 left-0 h-screen transition-transform transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+            } lg:translate-x-0 lg:static z-40`}
         >
-          <nav className="w-64 h-screen text-white bg-gray-800">
+          <nav className="w-56 h-screen text-white bg-slate-200">
+            <div className="text-black p-2 place-items-center border-b-2 border-black">
+              <h2 className="text-3xl">Menu</h2>
+            </div>
             <ul>
-              <li className="p-4 hover:bg-gray-700">
-                <Link to="/clientes">
+              <Link to="/clientes">
+                <li className="p-4 text-gray-800 hover:text-white hover:bg-gray-500">
                   <HiUser className="inline-block mr-2" />
                   Clientes
-                </Link>
-              </li>
-              <li className="p-4 hover:bg-gray-700">
-                <Link to="/produtos">
+                </li>
+              </Link>
+              <Link to="/produtos">
+                <li className="p-4 text-gray-800 hover:text-white hover:bg-gray-500">
                   <HiShoppingBag className="inline-block mr-2" />
                   Produtos
-                </Link>
-              </li>
-              <li className="p-4 hover:bg-gray-700">
-                <Link to="/servicos">
-                  <HiTable className="inline-block mr-2" />
+                </li>
+              </Link>
+              <Link to="/servicos">
+                <li className="p-4 text-gray-800 hover:text-white hover:bg-gray-500">
+                  <HiShoppingBag className="inline-block mr-2" />
                   Serviços
-                </Link>
-              </li>
+                </li>
+              </Link>
+              <Link to="/listagem" className="sidebar-link">
+                <li className="p-4 text-gray-800 hover:text-white hover:bg-gray-500">
+                  <HiTable className="inline-block mr-2" />
+                  Filtros
+                </li>
+              </Link>
             </ul>
           </nav>
         </aside>

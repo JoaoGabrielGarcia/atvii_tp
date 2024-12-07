@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 
 interface ModalProps {
-  isOpen: boolean; 
-  title: string; 
-  children: React.ReactNode; 
-  onClose: () => void; 
-  onSubmit: () => void; 
+  isOpen: boolean;
+  title: string;
+  children: React.ReactNode;
+  onClose: () => void;
+  onSubmit: () => void; // Função de submit do formulário
 }
 
 export default class Modal extends Component<ModalProps> {
@@ -15,8 +15,8 @@ export default class Modal extends Component<ModalProps> {
     if (!isOpen) return null; // Não renderiza o modal se não estiver aberto
 
     return (
-      <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-        <div className="bg-white w-full max-w-sm lg:max-w-xl rounded-lg shadow-lg p-6 relative">
+      <div className="fixed inset-0 p-5 overflow-y-auto flex items-center justify-center z-50 bg-black bg-opacity-50">
+        <div className="bg-white mt-auto max-h-fit w-full max-w-sm lg:max-w-xl rounded-lg shadow-lg p-6 relative">
           {/* Título do Modal */}
           <h2 className="text-xl font-bold mb-4">{title}</h2>
 
@@ -33,7 +33,7 @@ export default class Modal extends Component<ModalProps> {
             </button>
             <button
               className="px-3 py-1 bg-black text-lime-400 border-2 border-lime-400 rounded-full hover:border-lime-500 hover:bg-lime-500 hover:text-black"
-              onClick={onSubmit}
+              onClick={onSubmit} 
             >
               Confirmar
             </button>
@@ -43,5 +43,3 @@ export default class Modal extends Component<ModalProps> {
     );
   }
 }
-
-
